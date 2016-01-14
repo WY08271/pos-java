@@ -1,2 +1,4 @@
 .idea
 pos-java.iml
+*.class
+out/

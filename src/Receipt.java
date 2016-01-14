@@ -21,8 +21,8 @@ public class Receipt {
 
     public float calculateSubTotal(ReceiptItem receiptItem) {
         float rate = receiptItem.getRate();
-        float count = receiptItem.getCartItem().getCount();
-        float price = receiptItem.getCartItem().getPrice();
+        float count = receiptItem.getCount();
+        float price = receiptItem.getPrice();
         float subTotal = rate * count * price;
 
         return subTotal;
@@ -43,8 +43,8 @@ public class Receipt {
 
         for(ReceiptItem receiptItem : receiptItems){
             float rate = receiptItem.getRate();
-            float count = receiptItem.getCartItem().getCount();
-            float price = receiptItem.getCartItem().getPrice();
+            float count = receiptItem.getCount();
+            float price = receiptItem.getPrice();
             savePrice += (1.00F - rate) * count * price;
         }
 

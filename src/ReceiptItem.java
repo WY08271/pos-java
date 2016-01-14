@@ -18,4 +18,12 @@ public class ReceiptItem {
         return rate;
     }
 
+    public float getCount(){
+        return this.cartItem.getCount();
+    }
+
+    public float getPrice(){
+        return this.cartItem.getPrice();
+    }
+
 }

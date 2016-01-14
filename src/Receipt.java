@@ -22,7 +22,7 @@ public class Receipt {
     public float calculateSubTotal(ReceiptItem receiptItem) {
         float rate = receiptItem.getRate();
         float count = receiptItem.getCartItem().getCount();
-        float price = receiptItem.getCartItem().getItem().getPrice();
+        float price = receiptItem.getCartItem().getPrice();
         float subTotal = rate * count * price;
 
         return subTotal;
@@ -44,7 +44,7 @@ public class Receipt {
         for(ReceiptItem receiptItem : receiptItems){
             float rate = receiptItem.getRate();
             float count = receiptItem.getCartItem().getCount();
-            float price = receiptItem.getCartItem().getItem().getPrice();
+            float price = receiptItem.getCartItem().getPrice();
             savePrice += (1.00F - rate) * count * price;
         }
 
@@ -54,14 +54,17 @@ public class Receipt {
     public String printReceipt(){
 
         String ticket = "***<没钱赚商店>收据***" + "\n---------------------\n";
-        for(int i = 0; i < receiptItems.size(); i++){
-            ticket += "名称:" + receiptItems.get(i).getCartItem().getItem().getName() + ",数量:"
-                    + receiptItems.get(i).getCartItem().getCount()
-                    + receiptItems.get(i).getCartItem().getItem().getUnit()
+
+        for(ReceiptItem receiptItem : receiptItems) {
+            CartItem cartItem = receiptItem.getCartItem();
+
+            ticket += "名称:" + cartItem.getName() + ",数量:"
+                    + cartItem.getCount()
+                    + cartItem.getUnit()
                     + ",单价:"
-                    + receiptItems.get(i).getCartItem().getItem().getPrice()
+                    + cartItem.getPrice()
                     + "(元),小计:"
-                    + Util.priceFormat(calculateSubTotal(receiptItems.get(i))) + "\n";
+                    + Util.priceFormat(calculateSubTotal(receiptItem)) + "\n";
         }
 
         ticket += "--------------\n" + "总计:" + Util.priceFormat(calculateTotalPrice())

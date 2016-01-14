@@ -15,7 +15,7 @@ public class Cart {
 
         if(isRepeat(item)){
             for(CartItem cartitem : cartItems){
-                if(cartitem.getItem().getBarcode().equals( item.getBarcode() )){
+                if(cartitem.getBarcode().equals( item.getBarcode() )){
                     cartitem.setCount(count);
                     return cartitem;
                 }
@@ -32,7 +32,7 @@ public class Cart {
         boolean result = false;
 
         for(CartItem cartitem : cartItems){
-            if(cartitem.getItem().getBarcode().equals(item.getBarcode())){
+            if(cartitem.getBarcode().equals(item.getBarcode())){
                 result = true;
             }
         }

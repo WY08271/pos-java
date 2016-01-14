@@ -21,4 +21,20 @@ public class CartItem {
     public void setCount(float count) {
         this.count += count;
     }
+
+    public String getBarcode() {
+        return this.item.getBarcode();
+    }
+
+    public float getPrice() {
+        return this.item.getPrice();
+    }
+
+    public String getName() {
+        return this.item.getName();
+    }
+
+    public String getUnit() {
+        return this.item.getUnit();
+    }
 }

@@ -38,7 +38,7 @@ public class Service {
     public float findRate(CartItem cartItem) {
 
         Optional<Discount> discount = this.discounts.stream()
-                .filter(d -> d.getBarcode().equals(cartItem.getItem().getBarcode()))
+                .filter(d -> d.getBarcode().equals(cartItem.getBarcode()))
                 .findFirst();
 
         return discount.isPresent() ? discount.get().getRate() : 1.0F;

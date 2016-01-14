@@ -21,8 +21,6 @@ public class Pos {
             receipt.addReceiptItems(cartItem, rate);
         }
 
-        System.out.print(receipt.printReceipt());
-
         return receipt.printReceipt();
     }
 }

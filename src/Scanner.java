@@ -4,15 +4,10 @@
 public class Scanner {
 
     public Tag scan(String tagString){
-        String temp[] = tagString.split("-");
-        Tag tag;
+        String tagArray[] = tagString.split("-");
 
-        if(temp.length != 2){
-            tag = new Tag(temp[0]);
-        }else {
-            tag = new Tag(temp[0], Float.parseFloat(temp[1]));
-        }
+        float count = tagArray.length > 1 ? Float.parseFloat(tagArray[1]) : 1;
 
-        return tag;
+        return new Tag(tagArray[0], count);
     }
 }
